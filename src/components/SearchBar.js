@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
-const SearchBar = ({ onFormSubmit }) => {
+const SearchBar = ({ onFormSubmit, previousSearch }) => {
   const [location, setLocation] = useState('');
 
   const onSubmit = (event) => {
     event.preventDefault();
 
     onFormSubmit(location);
+    previousSearch(location);
   };
 
   return (

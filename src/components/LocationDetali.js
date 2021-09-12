@@ -9,18 +9,17 @@ const LocationDetail = ({ locationData, currentDay }) => {
             weekday: "long"
         });
         let date = dateList(currentDay.dt_txt);
-        
+
         return (
             <div className="ui raised card">
                 <div className="header" className="content">
                     <h1>{weekDay}</h1>
-                    <div class="meta">
-                        <span class="category">{date}</span>
-                    </div>
-                    <div className="description">
-                        <p>{currentDay.weather[0].description}</p>
-                    </div>
+                        <p class="category">{date}</p>
                     <h1 className="header">{Math.round(Number(currentDay.main.temp))}°C</h1>
+                    <img src={`http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`} />
+                    <div className="meta">
+                        <p>{currentDay.weather[0].main}</p>
+                    </div>
                     <div className="header">{locationData.name}, {locationData.country}</div>
                 </div>
                 <div className="extra content">

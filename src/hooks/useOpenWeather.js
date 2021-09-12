@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import openWeather from '../api/openWeather';
 
-const useOpenWeather = (defaultLocation) => {
+const useOpenWeather = (defaultLocation, path = 'london') => {
     const [weather, setWeather] = useState([]);
   
     useEffect(() => {
@@ -9,7 +9,7 @@ const useOpenWeather = (defaultLocation) => {
     }, [defaultLocation]);
   
     const search = async (term) => {
-      const response = await openWeather.get('/forecast', {
+      const response = await openWeather.get(path, {
         params: {
           q: term,
         },
