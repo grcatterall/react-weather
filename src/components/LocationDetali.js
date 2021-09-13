@@ -13,35 +13,19 @@ const LocationDetail = ({ locationData, currentDay }) => {
         return (
             <Grid padded style={{height: '100%'}}>
                 <Grid.Row style={{height: '100%'}}>
-                    <Grid.Column computer={4} mobile={16} width={4} style={{marginTop: '4%'}}>
+                    <Grid.Column computer={4} mobile={16} style={{marginTop: '4%'}}>
                         <h1 className="temp">{Math.round(Number(currentDay.main.temp))}°C</h1>
                     </Grid.Column>
-                    <Grid.Column computer={5} mobile={16} width={5} style={{marginTop: '4%'}}>
+                    <Grid.Column computer={5} mobile={16} style={{marginTop: '4%'}}>
                         <div className="location"><p>{locationData.name}, {locationData.country}</p></div>
                         <div className="header">{weekDay}, {date}</div>
                     </Grid.Column>
-                    <Grid.Column computer={4} mobile={16} width={4}>
+                    <Grid.Column computer={4} mobile={16}>
                         <img src={`http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`} alt={'dsajnk'}/>
                         <p>{currentDay.weather[0].main}</p>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-            // <div className="ui raised card">
-            //     <div className="header">
-            //         <h1>{weekDay}</h1>
-            //             <p class="category">{date}</p>
-            //         <h1 className="header">{Math.round(Number(currentDay.main.temp))}°C</h1>
-            //         <img src={`http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`} alt={'dsajnk'}/>
-            //         <div className="meta">
-            //             <p>{currentDay.weather[0].main}</p>
-            //         </div>
-            //         <div className="header">{locationData.name}, {locationData.country}</div>
-            //     </div>
-            //     <div className="extra content">
-            //         <div className="right floated author">
-            //         </div>
-            //     </div>
-            // </div>
         );
     } else {
         return <SkeletonCard />;
