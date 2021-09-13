@@ -23,8 +23,8 @@ const App = () => {
     }
 
     return (
-        <div className="background" style={{backgroundImage: "url('" + balloon + "')"}}>
-            <Grid celled padded style={{height: '100vh', overflowY: 'auto'}}>
+        <div className="background" style={{backgroundImage: "url('" + balloon + "')", backgroundSize: '100%'}}>
+            <Grid  padded style={{height: '100vh', overflowY: 'scroll'}}>
                 <Grid.Row style={{height: '100%'}}>
                     <Grid.Column width={10} style={{position: 'relative'}}>
                         <div className="pane-view">
@@ -33,7 +33,7 @@ const App = () => {
                     </Grid.Column>
                     <Grid.Column width={6}>
                         <div className="overlay">
-                            <Grid celled padded style={{height: '100%'}}>
+                            <Grid  padded style={{height: '100%'}}>
                                 <Grid.Row style={{height: '10%'}}>
                                     <SearchBar onFormSubmit={search} previousSearch={pushToSearch}/>
                                 </Grid.Row>

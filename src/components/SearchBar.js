@@ -12,17 +12,21 @@ const SearchBar = ({ onFormSubmit, previousSearch }) => {
   };
 
   return (
-    <div className="search-bar">
-      <form onSubmit={onSubmit}>
-        <div className="field">
-          <input
-            type="text"
-            value={location}
-            onChange={(event) => setLocation(event.target.value)}
-            placeholder="Another Location"
-          />
+    <div className="overlay-segment">
+      <div className="overlay-segment-border__bottom">
+        <div className="search-bar">
+          <form onSubmit={onSubmit}>
+            <div className="field">
+              <input
+                type="text"
+                value={location}
+                onChange={(event) => setLocation(event.target.value)}
+                placeholder="Another Location"
+              />
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

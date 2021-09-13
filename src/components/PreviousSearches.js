@@ -5,11 +5,20 @@ const PreviousSearches = ({ onLocationClick, searchList }) => {
     console.log(searchList);
     const renderedList = searchList.map(searchTerm => {
         return (
-            <p className="overlay-text" key={searchTerm} onClick={() => onLocationClick(searchTerm)}>{searchTerm}<br/></p>
+            <p  className="overlay-text pointer" 
+                key={searchTerm} 
+                onClick={() => onLocationClick(searchTerm)}>
+                    {searchTerm}
+                    <br/>
+            </p>
         );
       });
     return (
-        <div className="overlay-segment">{renderedList}</div>
+        <div className="overlay-segment">
+            <div className="overlay-segment-border__bottom">
+                {renderedList}
+            </div>
+        </div>
     );
 
 

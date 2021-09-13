@@ -15,10 +15,10 @@ const LocationDetail = ({ locationData, currentDay }) => {
         return (
             <Grid padded style={{height: '100%'}}>
                 <Grid.Row style={{height: '100%'}}>
-                    <Grid.Column width={4}>
+                    <Grid.Column width={4} style={{marginTop: '4%'}}>
                         <h1 className="temp">{Math.round(Number(currentDay.main.temp))}°C</h1>
                     </Grid.Column>
-                    <Grid.Column width={5}>
+                    <Grid.Column width={5} style={{marginTop: '4%'}}>
                         <div className="location"><p>{locationData.name}, {locationData.country}</p></div>
                         <div className="header">{weekDay}, {date}</div>
                     </Grid.Column>
