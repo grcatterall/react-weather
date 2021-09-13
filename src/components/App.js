@@ -23,7 +23,7 @@ const App = () => {
     }
 
     return (
-        <div className="background" style={{backgroundImage: "url('" + balloon + "')"}}>
+        <div className="background" style={{backgroundImage: "url('" + balloon + "')", overflowY: 'hidden'}}>
             <Grid padded style={{height: '100vh', overflowY: 'hidden'}}>
                 <Grid.Row style={{height: '100%', overflowY: 'scroll'}}>
                     <Grid.Column mobile={16} computer={10} style={{position: 'relative'}}>
