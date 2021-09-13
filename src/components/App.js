@@ -24,7 +24,7 @@ const App = () => {
 
     return (
         <div className="background" style={{backgroundImage: "url('" + balloon + "')", backgroundSize: '100%'}}>
-            <Grid  padded style={{height: '100vh', overflowY: 'scroll'}}>
+            <Grid  padded style={{height: '100vh', overflowY: 'hidden'}}>
                 <Grid.Row style={{height: '100%'}}>
                     <Grid.Column width={10} style={{position: 'relative'}}>
                         <div className="pane-view">
