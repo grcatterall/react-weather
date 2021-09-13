@@ -13,7 +13,7 @@ const PreviousSearches = ({ onLocationClick, searchList }) => {
         );
       });
     return (
-        <div className="overlay-segment">
+        <div className="overlay-segment" style={{paddingBottom: '2%'}}>
             <div className="overlay-segment-border__bottom">
                 {renderedList}
             </div>
