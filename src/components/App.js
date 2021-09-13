@@ -23,15 +23,15 @@ const App = () => {
     }
 
     return (
-        <div className="background" style={{backgroundImage: "url('" + balloon + "')", backgroundSize: '100%'}}>
-            <Grid  padded style={{height: '100vh', overflowY: 'hidden'}}>
-                <Grid.Row style={{height: '100%'}}>
-                    <Grid.Column width={10} style={{position: 'relative'}}>
+        <div className="background" style={{backgroundImage: "url('" + balloon + "')"}}>
+            <Grid padded style={{height: '100vh', overflowY: 'hidden'}}>
+                <Grid.Row style={{height: '100%', overflowY: 'scroll'}}>
+                    <Grid.Column mobile={16} computer={10} width={10} style={{position: 'relative'}}>
                         <div className="pane-view">
                             <LocationDetail locationData={weather.city} currentDay={weather.list ? weather.list[0] : ''}/>
                         </div>
                     </Grid.Column>
-                    <Grid.Column width={6}>
+                    <Grid.Column mobile={16} computer={6} width={6}>
                         <div className="overlay">
                             <Grid  padded style={{height: '100%'}}>
                                 <Grid.Row style={{height: '10%'}}>

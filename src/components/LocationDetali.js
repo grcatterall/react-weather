@@ -4,8 +4,6 @@ import { Grid } from 'semantic-ui-react';
 import SkeletonCard from './SkeletonCard';
 
 const LocationDetail = ({ locationData, currentDay }) => {
-    console.log(locationData);
-    console.log(currentDay);
     if (locationData) {
         const weekDay = new Date(currentDay.dt * 1000).toLocaleString("en-gb", {
             weekday: "long"
@@ -15,14 +13,14 @@ const LocationDetail = ({ locationData, currentDay }) => {
         return (
             <Grid padded style={{height: '100%'}}>
                 <Grid.Row style={{height: '100%'}}>
-                    <Grid.Column width={4} style={{marginTop: '4%'}}>
+                    <Grid.Column computer={4} mobile={16} width={4} style={{marginTop: '4%'}}>
                         <h1 className="temp">{Math.round(Number(currentDay.main.temp))}°C</h1>
                     </Grid.Column>
-                    <Grid.Column width={5} style={{marginTop: '4%'}}>
+                    <Grid.Column computer={5} mobile={16} width={5} style={{marginTop: '4%'}}>
                         <div className="location"><p>{locationData.name}, {locationData.country}</p></div>
                         <div className="header">{weekDay}, {date}</div>
                     </Grid.Column>
-                    <Grid.Column width={4}>
+                    <Grid.Column computer={4} mobile={16} width={4}>
                         <img src={`http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`} alt={'dsajnk'}/>
                         <p>{currentDay.weather[0].main}</p>
                     </Grid.Column>
