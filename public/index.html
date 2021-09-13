@@ -56,8 +56,90 @@
       }
       .card {
         padding: 16px;
+        min-height: 300px!important;
       }
 
+      .background {
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .overlay {
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .background .ui.celled.grid>.column:not(.row), .background .ui.celled.grid>.row>.column {
+        padding: 0!important;
+      }
+
+      .search-bar {
+        width: 100%;
+        padding: 20px 0;
+      }
+      .search-bar form{
+        height: 100%;
+      }
+      .search-bar .field{
+        height: 100%;
+        padding: 0 10%;
+      }
+
+      .search-bar input {
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        border: none;
+        color: white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px #5881a2 solid;
+      }
+
+      .search-bar input:focus-visible {
+        border: unset;
+        border-bottom: 2px #5881a2 solid;
+      }
+
+      .pane-view {
+        height: 50%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        color: white;
+      }
+
+      .temp {
+        font-size: 64px;
+      }
+
+      .location {
+        font-size: 36px;
+      }
+      .overlay-text {
+        color: #5881a2;
+        margin-bottom: 10%;
+      }
+
+      .overlay-text:last-child {
+        margin-bottom: none;
+      }
+
+      .overlay-segment {
+        width: 100%;
+        padding: 10% 10%;
+      }
+
+      .overlay-text.overlay-header, .overlay-value{
+        color: white;
+      }
+
+      .overlay-data {
+        display: flex;
+        justify-content: space-between;
+      }
     </style>
   </head>
   <body>

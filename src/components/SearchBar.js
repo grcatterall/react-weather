@@ -8,17 +8,18 @@ const SearchBar = ({ onFormSubmit, previousSearch }) => {
 
     onFormSubmit(location);
     previousSearch(location);
+    setLocation('');
   };
 
   return (
-    <div className="search-bar ui segment">
-      <form onSubmit={onSubmit} className="ui form">
+    <div className="search-bar">
+      <form onSubmit={onSubmit}>
         <div className="field">
-          <label>Enter Location</label>
           <input
             type="text"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
+            placeholder="Another Location"
           />
         </div>
       </form>

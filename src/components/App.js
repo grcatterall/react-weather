@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Grid } from 'semantic-ui-react';
 
 import useOpenWeather from '../hooks/useOpenWeather';
 import SearchBar from './SearchBar';
 import LocationDetail from './LocationDetali';
 import PreviousSearches from './PreviousSearches';
+import WeatherData from './WeatherData';
+
+import balloon from '../img/balloon.jpeg';
 
 const App = () => {
     const [weather, search] = useOpenWeather('london', '/forecast');
@@ -11,27 +15,46 @@ const App = () => {
 
     const pushToSearch = (search) => {
         if (previousSearches.length > 3) {
-            let newArray = previousSearches.shift();
+            let newArray = previousSearches.pop();
             addSearch(newArray);
-            console.log(newArray);
-            console.log(previousSearches);
         }
-        addSearch([...previousSearches, search]);
+        
+        addSearch([search.charAt(0).toUpperCase() + search.slice(1), ...previousSearches]);
     }
 
     return (
-      <div className="ui container grid">
-        <div className="ui row centered">
-            <div className="column eight wide">
-                <SearchBar onFormSubmit={search} previousSearch={pushToSearch}/>
-            </div>
-            <div className="column four">
-                <PreviousSearches onLocationClick={search} searchList={previousSearches}/>
-            </div>
-        </div>
-        <div className="ui row centered">
-          <LocationDetail locationData={weather.city} currentDay={weather.list ? weather.list[0] : ''}/>
-        </div>
+        <div className="background" style={{backgroundImage: "url('" + balloon + "')"}}>
+            <Grid celled padded style={{height: '100vh', overflowY: 'auto'}}>
+                <Grid.Row style={{height: '100%'}}>
+                    <Grid.Column width={10} style={{position: 'relative'}}>
+                        <div className="pane-view">
+                            <LocationDetail locationData={weather.city} currentDay={weather.list ? weather.list[0] : ''}/>
+                        </div>
+                    </Grid.Column>
+                    <Grid.Column width={6}>
+                        <div className="overlay">
+                            <Grid celled padded style={{height: '100%'}}>
+                                <Grid.Row style={{height: '10%'}}>
+                                    <SearchBar onFormSubmit={search} previousSearch={pushToSearch}/>
+                                </Grid.Row>
+                                <Grid.Row style={{height: '40%'}}>
+                                    <PreviousSearches onLocationClick={search} searchList={previousSearches}/>
+                                </Grid.Row>
+                                <Grid.Row style={{height: '50%'}}>
+                                    <WeatherData data={weather.list ? weather.list[0] : ''} />
+                                </Grid.Row>
+                            </Grid>
+                        </div>
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row style={{height: '100%'}}>
+                    <Grid.Column width={16} >
+                        <div className="overlay">
+                            <LocationDetail locationData={weather.city} currentDay={weather.list ? weather.list[0] : ''}/>
+                        </div>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
       </div>
     );
 };

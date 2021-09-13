@@ -1,5 +1,7 @@
 import React from "react";
-import reactDom from "react-dom";
+import { Grid } from 'semantic-ui-react';
+
+import SkeletonCard from './SkeletonCard';
 
 const LocationDetail = ({ locationData, currentDay }) => {
     console.log(locationData);
@@ -11,44 +13,44 @@ const LocationDetail = ({ locationData, currentDay }) => {
         let date = dateList(currentDay.dt_txt);
 
         return (
-            <div className="ui raised card">
-                <div className="header" className="content">
-                    <h1>{weekDay}</h1>
-                        <p class="category">{date}</p>
-                    <h1 className="header">{Math.round(Number(currentDay.main.temp))}°C</h1>
-                    <img src={`http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`} />
-                    <div className="meta">
+            <Grid padded style={{height: '100%'}}>
+                <Grid.Row style={{height: '100%'}}>
+                    <Grid.Column width={4}>
+                        <h1 className="temp">{Math.round(Number(currentDay.main.temp))}°C</h1>
+                    </Grid.Column>
+                    <Grid.Column width={5}>
+                        <div className="location"><p>{locationData.name}, {locationData.country}</p></div>
+                        <div className="header">{weekDay}, {date}</div>
+                    </Grid.Column>
+                    <Grid.Column width={4}>
+                        <img src={`http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`} alt={'dsajnk'}/>
                         <p>{currentDay.weather[0].main}</p>
-                    </div>
-                    <div className="header">{locationData.name}, {locationData.country}</div>
-                </div>
-                <div className="extra content">
-                    <div className="right floated author">
-                    </div>
-                </div>
-            </div>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+            // <div className="ui raised card">
+            //     <div className="header">
+            //         <h1>{weekDay}</h1>
+            //             <p class="category">{date}</p>
+            //         <h1 className="header">{Math.round(Number(currentDay.main.temp))}°C</h1>
+            //         <img src={`http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`} alt={'dsajnk'}/>
+            //         <div className="meta">
+            //             <p>{currentDay.weather[0].main}</p>
+            //         </div>
+            //         <div className="header">{locationData.name}, {locationData.country}</div>
+            //     </div>
+            //     <div className="extra content">
+            //         <div className="right floated author">
+            //         </div>
+            //     </div>
+            // </div>
         );
     } else {
-        return (
-            <div classNameName="ui raised card">
-                <div className="content">
-                    <div className="header skeleton skeleton-header"></div>
-                    <div className="description">
-                        <p classNameName="skeleton skeleton-text"></p>
-                        <p classNameName="skeleton skeleton-text"></p>
-                        <p classNameName="skeleton skeleton-text"></p>
-                    </div>
-                </div>
-                <div className="extra content">
-                    <div className="right floated author">
-                    </div>
-                </div>
-            </div>
-        );
+        return <SkeletonCard />;
     }
 
     function dateList(date) {
-        let months   = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        let months   = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
         let myarr1 = date.split(" ");
         date = myarr1[0];
         let myArr2 = date.split("-");
