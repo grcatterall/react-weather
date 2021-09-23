@@ -40,7 +40,6 @@ const LocationDetail = ({ locationData, currentDay }) => {
         let month = months[Number(myArr2[1])];
         let d = myArr2[2];
         return d + ' ' + month + ' ' + year; 
-        return [d, month, year];
     }
 }
 

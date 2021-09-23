@@ -27,6 +27,7 @@ const App = () => {
             <Grid padded style={{height: '100vh', overflowY: 'hidden'}}>
                 <Grid.Row style={{height: '100%', overflowY: 'scroll'}}>
                     <Grid.Column mobile={16} computer={10} style={{position: 'relative'}}>
+                        <div className="link-container"><a target="_blank" className="link" href="https://github.com/grcatterall/react-weather/">View on GitHub</a></div>
                         <div className="pane-view">
                             <LocationDetail locationData={weather.city} currentDay={weather.list ? weather.list[0] : ''}/>
                         </div>
